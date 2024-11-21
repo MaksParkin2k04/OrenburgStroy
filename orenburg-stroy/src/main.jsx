@@ -1,20 +1,29 @@
 ﻿import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { getCities, getCity } from './repository.js'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { getCities } from './repository.js';
+import RootRoute from './routes/RootRoute.jsx';
+import CityRoute, { loader as cityLoader } from './routes/CityRoute.jsx';
 
 const result = await getCities();
 
+const router = new createBrowserRouter([
+    {
+        path: '/',
+        element: <RootRoute {...result} />,
+        children: [
+            {
+                path: '/:aliasCity',
+                element: <CityRoute />,
+                loader: cityLoader
+            }
+        ]
+    }
+]);
+
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        {result.status === 200 ?
-            <ul>
-                {result.cities.map((city, index) => (
-                    <li key={city.id}>{`${index + 1}.${city.name}`}</li>
-                ))}
-            </ul>
-            :
-            <h3 style={{ color: 'red' }}>{result.error}</h3>
-        }
+        <RouterProvider router={router} />
     </StrictMode>
 );
 
