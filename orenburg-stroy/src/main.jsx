@@ -1,27 +1,21 @@
 ﻿import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { getCities, getCity } from './repository.js'
 
-const message = await getMessage();
-
-async function getMessage() {
-    const response = await fetch('/api/');
-
-    if (response.status === 200) {
-        const data = await response.json();
-        return { title: data.title, error: undefined };
-    } else {
-        return { title: undefined, error: 'Сервер недоступен. Перезагрузите страницу.' };
-    }
-}
+const result = await getCities();
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
-        {message.title ?
-            <h1>{message.title} - Данные получены с сервера.</h1>
+        {result.status === 200 ?
+            <ul>
+                {result.cities.map((city, index) => (
+                    <li key={city.id}>{`${index + 1}.${city.name}`}</li>
+                ))}
+            </ul>
             :
-            <h3 style={{ color: 'red' }}>{message.error}</h3>
+            <h3 style={{ color: 'red' }}>{result.error}</h3>
         }
-    </StrictMode>,
-)
+    </StrictMode>
+);
 
 
