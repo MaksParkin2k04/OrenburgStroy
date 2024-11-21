@@ -15,9 +15,10 @@
             this.Id = id;
             this.Alias = alias;
             this.Name = name;
+            projects = new List<Project>();
         }
 
-        private List<Project>? projects;
+        private List<Project> projects;
 
         /// <summary>
         /// Идентификатор
@@ -37,7 +38,7 @@
         /// <summary>
         /// Коллекция проектов
         /// </summary>
-        public IReadOnlyCollection<Project>? Projects { get { return projects; } }
+        public IReadOnlyCollection<Project> Projects { get { return projects; } }
 
         /// <summary>
         /// Создает объект типа City
@@ -48,7 +49,7 @@
         /// <returns>Объект типа City</returns>
         public static City Create(string alias, string name, IEnumerable<Project> projects) {
             City city = new City(Guid.Empty, alias, name);
-            city.projects = projects != null ? new List<Project>(projects) : new List<Project>();
+            city.projects.AddRange(projects);
             return city;
         }
     }

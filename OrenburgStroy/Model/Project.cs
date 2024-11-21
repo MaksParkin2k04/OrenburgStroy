@@ -17,9 +17,10 @@
             this.Alias = alias;
             this.Name = name;
             this.Description = description;
+            this.images = new List<ImageProject>();
         }
 
-        private List<ImageProject>? images;
+        private List<ImageProject> images;
 
         /// <summary>
         /// Идентификатор
@@ -44,7 +45,7 @@
         /// <summary>
         /// Коллекция изображений проекта
         /// </summary>
-        public IReadOnlyCollection<ImageProject>? Images { get { return images; } }
+        public IReadOnlyCollection<ImageProject> Images { get { return images; } }
 
         /// <summary>
         /// Создает объект типа Project
@@ -56,7 +57,7 @@
         /// <returns>Объект типа Project</returns>
         public static Project Create(string alias, string name, string description, IEnumerable<ImageProject> images) {
             Project project = new Project(Guid.Empty, alias, name, description);
-            project.images = images != null ? new List<ImageProject>(images) : new List<ImageProject>();
+            project.images.AddRange(images);
             return project;
         }
     }
