@@ -44,7 +44,6 @@ namespace OrenburgStroy {
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
-            app.MapGet("/api/", () => new { Title = "Приложение React App" });
             app.MapFallbackToFile("/index.html");
 
             app.Run();
