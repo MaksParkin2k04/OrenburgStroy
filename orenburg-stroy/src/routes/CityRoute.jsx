@@ -10,5 +10,9 @@ export async function loader({ request, params }) {
 export default function CityRoute() {
     const data = useLoaderData();
 
-    return (<CityPage {...data} />);
+    function projectsCallback(project) {
+        const mm = 1 + 1;
+    }
+
+    return (<CityPage {...data} projectsCallback={projectsCallback} />);
 }

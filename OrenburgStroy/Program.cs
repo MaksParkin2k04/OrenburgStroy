@@ -27,7 +27,8 @@ namespace OrenburgStroy {
             var app = builder.Build();
 
             //// Инициализация базы данных
-            //using (IServiceScope scope = app.Services.CreateScope()) {
+            //using (IServiceScope scope = app.Services.CreateScope())
+            //{
             //    ApplicationContext context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
             //    await Data.Initialization.DatabaseInitializer.InitializeAsync(context);
             //}
