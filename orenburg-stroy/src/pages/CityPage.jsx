@@ -11,10 +11,12 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 
-
+import NavBarMenu from '../Components/NavBarMenu'
 
 
 export default function CityPage({ city, error, projectsCallback = (project) => { } }) {
+
+
 
     const projects = (city === undefined) ? null :
 
@@ -45,7 +47,7 @@ export default function CityPage({ city, error, projectsCallback = (project) => 
 
                                     <CardContent sx={{ justifyContent: 'flex-start', m: 0 }}>
                                         <Typography > {project.description} </Typography>
-                                        <Typography > {project.description} </Typography>
+                            
                                     </CardContent>
 
                                 </CardActionArea>
@@ -60,7 +62,7 @@ export default function CityPage({ city, error, projectsCallback = (project) => 
 
     return (
         <>
-            <h1>{city.name}</h1>
+           
             {projects ? <div> {projects} </div> : null}
         </>
     );
