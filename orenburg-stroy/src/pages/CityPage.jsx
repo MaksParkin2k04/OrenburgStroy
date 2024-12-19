@@ -11,10 +11,8 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 
-import NavBarMenu from '../Components/NavBarMenu'
-
-
-export default function CityPage({ city, error, projectsCallback = (project) => { } }) {
+import ClientForm from '../Components/ClientForm'
+export default function CityPage({ city, menuItems, error, projectsCallback = (projects) => {  } }) {
 
 
 
@@ -32,6 +30,7 @@ export default function CityPage({ city, error, projectsCallback = (project) => 
                                     <CardContent >
                                         <Typography variant="h5" component="div">
                                             <Typography > {project.name} </Typography>
+                                            
                                         </Typography>
                                     </CardContent>
 
@@ -46,8 +45,9 @@ export default function CityPage({ city, error, projectsCallback = (project) => 
                                     ))};
 
                                     <CardContent sx={{ justifyContent: 'flex-start', m: 0 }}>
-                                        <Typography > {project.description} </Typography>
-                            
+                                        <Typography variant="h5" component="div">
+                                            <Typography > {project.description} </Typography>
+                                        </Typography>
                                     </CardContent>
 
                                 </CardActionArea>
@@ -60,10 +60,16 @@ export default function CityPage({ city, error, projectsCallback = (project) => 
             </Box>
         </>
 
+
+
     return (
         <>
-           
-            {projects ? <div> {projects} </div> : null}
+            <Grid sx={{mt: 5, mx: 0, px: 0} }>
+                {projects ? <div> {projects} </div> : null}
+        
+                < ClientForm />
+             
+            </Grid>
         </>
     );
 }
