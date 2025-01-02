@@ -62,6 +62,8 @@ export default function Cards({ city, error }) {
         </>
 
     ));
+
+    
    
     return (
         <>

@@ -41,9 +41,11 @@ export default function RootRoute({ cities, error, status }) {
 
     const navigatedPage = (page) => {
         const path = page.path;
+
+        
     }
 
-    return (<RootPage cities={cities} error={error} menuItems={menuItems} navigatedPage={navigatedPage} />);
+    return (<RootPage cities={cities} error={error} menuItems={menuItems} navigatedPage={navigatedPage}  />);
 
     function cityRedirect(aliasCity) {
         navigate(`/${aliasCity}`);

@@ -35,7 +35,6 @@ export default function CityRoute() {
     return (
         <>
             <CityPage {...data} projectsCallback={projectsCallback} />
-            <ClientForm projectsCallback={projectsCallback} />
         </>
 
 

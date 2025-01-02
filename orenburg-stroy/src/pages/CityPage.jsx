@@ -12,6 +12,7 @@ import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 
 import ClientForm from '../Components/ClientForm'
+import AboutCompany from '../pages/AboutCompany'
 export default function CityPage({ city, menuItems, error, projectsCallback = (projects) => {  } }) {
 
 
@@ -68,7 +69,7 @@ export default function CityPage({ city, menuItems, error, projectsCallback = (p
                 {projects ? <div> {projects} </div> : null}
         
                 < ClientForm />
-             
+                <AboutCompany  />
             </Grid>
         </>
     );
