@@ -1,4 +1,4 @@
-﻿import { useLoaderData, Link } from 'react-router-dom';
+﻿import { useLoaderData, useNavigate } from 'react-router-dom';
 import { getCity } from '../repository.js';
 import CityPage from '../pages/CityPage.jsx'
 
@@ -10,27 +10,13 @@ export async function loader({ request, params }) {
     return await getCity(params.aliasCity);
 }
 
-
-function projectsCallback(project) {
-
-
-    const info =
-
-    {
-
-        id: project.id,
-        name: project.name,
-        image: project.image,
-        descriprion: project.description,
-
-    }
-
-    console.log(project)
-}
-
 export default function CityRoute() {
     const data = useLoaderData();
+    const navigate = useNavigate();
 
+    function projectsCallback(project) {
+        navigate(`/project/${project.alias}`);
+    }
 
     return (
         <>

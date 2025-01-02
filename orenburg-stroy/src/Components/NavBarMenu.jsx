@@ -8,7 +8,6 @@ import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PersonIcon from '@mui/icons-material/Person';
 import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';

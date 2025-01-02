@@ -41,7 +41,7 @@ export default function RootRoute({ cities, error, status }) {
 
     const navigatedPage = (page) => {
         const path = page.path;
-
+        navigate(page.path);
         
     }
 
